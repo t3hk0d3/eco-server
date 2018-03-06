@@ -10,7 +10,7 @@ WORKDIR /srv/eco-server
 EXPOSE 2999/udp 3000 3001
 VOLUME ["/srv/eco-server/Storage", "/srv/eco-server/Configs"]
 
-CMD ["mono", "EcoServer.exe", "-no-gui"]
+CMD ["mono", "EcoServer.exe", "-nogui"]
 
 ARG ECO_FILENAME
 LABEL eco.version="unknown"
