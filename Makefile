@@ -19,4 +19,12 @@ push:
 
 clean:
 	rm -rf "${ECO_FILENAME}"
+
+run:
+	mkdir -p ~/eco-server/Storage ~/eco-server/Configs && \
+	docker run -d --name "eco-server" \
+	-v ~/eco-server/Storage:/srv/eco-server/Storage \
+	-v ~/eco-server/Configs:/srv/eco-server/Configs \
+	--network=host \
+	${DOCKER_TARGET}
 	
