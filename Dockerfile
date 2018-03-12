@@ -8,15 +8,17 @@ RUN /install_deps.sh
 ### Basic settings for Eco Server
 WORKDIR /srv/eco-server
 EXPOSE 2999/udp 3000 3001
-VOLUME ["/srv/eco-server/Storage", "/srv/eco-server/Configs"]
 
-CMD ["mono", "EcoServer.exe", "-nogui"]
+CMD ["/srv/eco-server/start.sh"]
 
-ARG ECO_FILENAME
-LABEL eco.version="unknown"
+ADD SHA256SUMS ./
 
-ADD ${ECO_SERVER_FILENAME} /tmp
+ARG ECO_VERSION
+ENV ECO_VERSION=${ECO_VERSION}
+LABEL eco.version=${ECO_VERSION}
 
 ### Install Eco Server
 ADD install.sh ./
-RUN /srv/eco-server/install.sh ${ECO_FILENAME}
+ADD start.sh ./
+
+RUN /srv/eco-server/install.sh
