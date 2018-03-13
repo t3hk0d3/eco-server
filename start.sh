@@ -13,4 +13,6 @@ if [ ! -f Storage/DefaultWorld ]; then
   cp DefaultStorage/* Storage/
 fi
 
+echo "$ECO_VESRION" > Confgs/eco_version
+
 mono EcoServer.exe -nogui
