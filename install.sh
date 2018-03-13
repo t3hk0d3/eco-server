@@ -16,7 +16,7 @@ wget --progress=bar:force:noscroll $ECO_SERVER_URL -O $ECO_LOCAL_FILE || exit 1
 # Check if checksum exists for this version
 if [[ -z "${SHA256SUM}" ]]; then
   echo "SHA256 checksum is not found for $ECO_FILENAME"
-  echo "Checsum for downloaded file is:"
+  echo "Checksum for downloaded file is:"
   sha256sum $ECO_FILENAME
   exit 1
 fi
