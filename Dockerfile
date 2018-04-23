@@ -7,7 +7,7 @@ RUN /install_deps.sh
 
 ### Basic settings for Eco Server
 WORKDIR /srv/eco-server
-EXPOSE 2999/udp 3000 3001
+EXPOSE 2999/udp 2999 3000 3001
 
 CMD ["/srv/eco-server/start.sh"]
 
